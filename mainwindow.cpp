@@ -183,6 +183,11 @@ void MainWindow::initial()
     display_note = new QAction(tr("&Display/Hide Note"), this);
     OptMenu->addAction(display_note);
 
+    search_for= new QAction(tr("&Search"),this);
+    search_for->setShortcut(QKeySequence::Find);
+    OptMenu->addAction(search_for);
+    connect(search_for,SIGNAL(triggered()),this,SLOT(search_start()));
+
     Template = menuBar()->addMenu(tr("&Template"));
 
     new_grocery = new QAction(tr("&Groceries"),this);
@@ -190,6 +195,7 @@ void MainWindow::initial()
 
     new_week_task = new QAction(tr("&Weekly Task"),this);
     Template->addAction(new_week_task);
+
 
     Sync = menuBar()->addMenu(tr("&Sync Menu"));
 
@@ -233,9 +239,9 @@ void MainWindow::initial()
     //main_layout->addWidget(my_task_list->lists_name);
 
 
-    this->my_task_list->setColumnCount(4);
+    this->my_task_list->setColumnCount(5);
     QStringList tmp_l;
-    tmp_l << "Name" << "Note" << "Due Date" << "Status";
+    tmp_l << "Name" << "Note" << "Tag" << "Due Date" << "Status";
     this->my_task_list->setHeaderLabels(tmp_l );
 
     this->my_task_list->setEditTriggers(QAbstractItemView::DoubleClicked);
@@ -285,7 +291,7 @@ void MainWindow::initial()
     main_layout->addLayout(button_layout1);
     main_layout->addLayout(button_layout2);
     main_widget->setLayout(main_layout);
-    main_widget->setMinimumSize(430,500);
+    main_widget->setMinimumSize(520,500);
     this->setCentralWidget(main_widget);
 
     //connection

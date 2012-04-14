@@ -75,6 +75,7 @@ private:
     QMenu *OptMenu;
     QAction *change_font;
     QAction *display_note;
+    QAction *search_for;
 
     QMenu *Template;
     QAction *new_grocery;

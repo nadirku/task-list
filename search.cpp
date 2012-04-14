@@ -32,7 +32,9 @@ task_list* search::start_search(QString querry,task_list * data)
             QTreeWidgetItem* test=data->topLevelItem(i)->child(j);
             if(test->text(0).contains(querry,Qt::CaseInsensitive)||
                test->text(1).contains(querry,Qt::CaseInsensitive)||
-               test->text(2).contains(querry,Qt::CaseInsensitive))
+               test->text(2).contains(querry,Qt::CaseInsensitive)||
+               test->text(3).contains(querry,Qt::CaseInsensitive)||
+               test->text(5).contains(querry,Qt::CaseInsensitive))
             {
                 result->addTopLevelItem(test);
             }
